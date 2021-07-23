@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+    movie-app:
+        container_name: movie-app
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        ports: 
+            - 80:3000
+        volumes: 
+            - /app/node_modules
+            - ./:/app
