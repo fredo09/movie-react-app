@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 
+import { MenuTop } from './components/Menu-Top';
+
+
 //Importamos todas las paginas
 import { Home } from './pages/Home';
 import { Movie } from './pages/Movie';
@@ -17,6 +20,11 @@ export default function App() {
   return (
     <Layout>
       <Router>
+
+        <Header>
+          <MenuTop/>
+        </Header>
+
         <Content>
           <Switch>
             <Route path="/" exact={true}>
@@ -31,7 +39,7 @@ export default function App() {
             <Route path="/popular-movie" exact={true}>
               <PopularMovie/>
             </Route>
-            <Route path="/serach" exact={true}>
+            <Route path="/search" exact={true}>
               <Search/>
             </Route>
 
