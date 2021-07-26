@@ -5,7 +5,7 @@ import { MovieList } from './../../components/MovieList'
 import { useFetch } from './../../hooks/useFetch';
 import {API_KEY, PATH_API} from './../../utils';
 
-export const Home = () => {
+export const Home = () => { 
 
     const newMovies = useFetch(
         `${PATH_API}/movie/now_playing?api_key=${API_KEY}&language=en-ES&page=1`
