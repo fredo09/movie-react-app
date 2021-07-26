@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import './SliderMovies.scss';
 
 export const SliderComponent = ({ movies }) => {
-    const { result, loading, error } = movies 
+    const { result, loading } = movies 
     
     if (loading || !result) {
         return <Loading/>

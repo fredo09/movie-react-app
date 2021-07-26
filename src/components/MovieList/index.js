@@ -10,7 +10,7 @@ import './MovieList.scss';
 import { Link } from 'react-router-dom';
 
 export const MovieList = ({ movies, title }) => {
-    const { result, loading, error } = movies;
+    const { result, loading } = movies;
 
     if (loading || !result) {
     return <Loading />;
