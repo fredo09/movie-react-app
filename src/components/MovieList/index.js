@@ -13,10 +13,8 @@ export const MovieList = ({ movies, title }) => {
     const { result, loading } = movies;
 
     if (loading || !result) {
-    return <Loading />;
-  }
-
-    console.log(movies);
+        return <Loading />;
+    }
 
     return (
         <List
