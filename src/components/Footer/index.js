@@ -3,13 +3,17 @@
 **/
 
 import React from 'react';
+import { Layout } from 'antd';
 
 import './Footer.scss';
 
 export const Footer = () => {
+
+    const { Footer } = Layout;
+
     return (
-        <div>
-            <h1>Footer</h1>
-        </div>
+        <Footer className="footer">
+            <p>Fredy Vazquez &copy; 2021</p>
+        </Footer>
     )
 }
