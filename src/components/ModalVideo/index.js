@@ -14,6 +14,8 @@ export const ModalVideo = ({ videoKey, videaPlatform, isOpen, close }) => {
     }
 
     useEffect(() => {
+        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         const platformUrl = PLATFORM_VIDEO[videaPlatform] || 'NO CONTINE VIDEO TRAILER';
         setUrlVideo(platformUrl);
 
