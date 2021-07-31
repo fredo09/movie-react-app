@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { Row, Col, Button, Tooltip } from 'antd';
 import { useParams } from 'react-router-dom';
 import { useFetch } from './../../hooks/useFetch';
 import { API_KEY, PATH_API,  } from './../../utils';
 import { Loading } from './../../components/Loading';
+import { ModalVideo } from './../../components/ModalVideo';
 import moment from 'moment';
 
 import './Movie.scss';
@@ -45,9 +46,8 @@ function RenderMovie({ infoMovie }) {
 }
 
 function PosterMovie({ poster }) {
-    console.log(poster)
+
     const posterImage = `https://image.tmdb.org/t/p/original${poster}`;
-    console.log(posterImage);
 
     return (
         <div style={{backgroundImage: `url('${posterImage}')`}}></div>
@@ -58,6 +58,42 @@ function MovieInfo({ movieInfo }) {
 
     const { id, title, release_date, overview, genres, vote_average } = movieInfo;
     
+    const [ isVisible, setIsVisible ] = useState(false);
+
+    const videoMovie = useFetch(
+        `${PATH_API}/movie/${id}/videos?api_key=${API_KEY}&language=en-ES`
+    );
+
+    const openModal = () => setIsVisible(true);
+    const closeModal = () => setIsVisible(false);
+
+    //Funcion para renderizar el boton de ver trailer
+    const renderVideo = () => {
+        if (videoMovie.result) {
+            if (videoMovie.result.results.length > 0) {
+                return (
+                    <>
+                        <Button icon="play-circle" onClick={openModal}>
+                            Ver trailer
+                        </Button>
+                        <ModalVideo
+                            videoKey={videoMovie.result.results[0].key}
+                            videaPlatform={videoMovie.result.results[0].site}
+                            isOpen={isVisible}
+                            close={closeModal}
+                        />
+                    </>
+                );       
+            }
+        } else {
+            return (
+                <span>
+                    No contiene trailer...
+                </span>
+            );
+        }
+    }
+
     return (
         <>
             <div className="movie__info-header">
@@ -67,9 +103,7 @@ function MovieInfo({ movieInfo }) {
                         { moment(release_date, "YYYY-MM-DD").format("YYYY") }
                     </span>
                 </h1>
-                <Button>
-                    Ver trailer
-                </Button>
+                {renderVideo()}
             </div>
             <div className="movie__info-content">
                 <h3>
