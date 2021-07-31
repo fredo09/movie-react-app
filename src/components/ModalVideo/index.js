@@ -14,11 +14,14 @@ export const ModalVideo = ({ videoKey, videaPlatform, isOpen, close }) => {
     }
 
     useEffect(() => {
+        function switchPlatform() {
+            const platformUrl = PLATFORM_VIDEO[videaPlatform] || 'NO CONTINE VIDEO TRAILER';
+            setUrlVideo(platformUrl);
+        }
         
-        const platformUrl = PLATFORM_VIDEO[videaPlatform] || 'NO CONTINE VIDEO TRAILER';
-        setUrlVideo(platformUrl);
+        switchPlatform();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [videoKey, videaPlatform])
+    }, [videoKey, videaPlatform]); 
 
     return (
         <Modal
