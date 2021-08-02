@@ -11,11 +11,11 @@ export const ModalVideo = ({ videoKey, videaPlatform, isOpen, close }) => {
     const switchVideo = (videoKey, videaPlatform) => {
 
         const PLATFORM_VIDEO = {
-        YouTube:  `htpps://youtu.be/${videoKey}`,
-        Vimeo:  `htpps://vimeo.com/${videoKey}`
-    }
+            YouTube:  `htpps://youtu.be/${videoKey}`,
+            Vimeo:  `htpps://vimeo.com/${videoKey}`
+        }
 
-        const platformUrl = PLATFORM_VIDEO[videaPlatform] || 'NO CONTINE VIDEO TRAILER';
+        const platformUrl = PLATFORM_VIDEO[videaPlatform] || 'NO CONTIENE VIDEO TRAILER';
         setUrlVideo(platformUrl);
     }
 
