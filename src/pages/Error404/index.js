@@ -9,7 +9,7 @@ export const Error404 = () => {
     return (
         <>
             <div className="error404">
-                <div className="error404__img">
+                <div className="error404__img"> 
                     <img alt="Error404" src={ImgError404} />
                 </div>
                 <Link to="/">
