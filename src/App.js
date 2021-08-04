@@ -10,7 +10,7 @@ import { Home } from './pages/Home';
 import { Movie } from './pages/Movie';
 import { NewMovies } from './pages/New-movies';
 import { PopularMovie } from './pages/Popular-movie';
-import { Search } from './pages/Search';
+import Search from './pages/Search';
 import { Error404 } from './pages/Error404';
 
 export default function App() {
