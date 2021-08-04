@@ -8,18 +8,20 @@ export const ModalVideo = ({ videoKey, videaPlatform, isOpen, close }) => {
 
     const [ urlVideo, setUrlVideo ] = useState(null);
 
-    const PLATFORM_VIDEO = {
-        YouTube:  `htpps://youtu.be/${videoKey}`,
-        Vimeo:  `htpps://vimeo.com/${videoKey}`
+    const switchVideo = (videoKey, videaPlatform) => {
+
+        const PLATFORM_VIDEO = {
+            YouTube:  `htpps://youtu.be/${videoKey}`,
+            Vimeo:  `htpps://vimeo.com/${videoKey}`
+        }
+
+        const platformUrl = PLATFORM_VIDEO[videaPlatform] || 'NO CONTIENE VIDEO TRAILER';
+        setUrlVideo(platformUrl);
     }
 
+
     useEffect(() => {
-        function switchPlatform() {
-            const platformUrl = PLATFORM_VIDEO[videaPlatform] || 'NO CONTINE VIDEO TRAILER';
-            setUrlVideo(platformUrl);
-        }
-        
-        switchPlatform();
+        switchVideo(videoKey, videaPlatform);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [videoKey, videaPlatform]); 
 
