@@ -1,0 +1,16 @@
+h1 {
+  text-align: center !important;
+  font-size: 50px;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+
+  input {
+    text-align: center !important;
+    font-size: 35px;
+    height: 60px;
+    border-radius: 50px;
+  }
+}
