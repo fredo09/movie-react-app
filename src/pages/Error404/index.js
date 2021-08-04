@@ -15,7 +15,7 @@ export const Error404 = () => {
                 <Link to="/">
                     <p>Ir al inicio</p>
                 </Link>
-            </div>
+            </div> 
             <Footer/>
         </>
     )
